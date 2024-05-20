@@ -72,3 +72,11 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.active {
+  font-weight: bold;
+}
+
+.completed {
+  text-decoration: line-through;
+}
