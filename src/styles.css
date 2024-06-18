@@ -1,17 +1,24 @@
 /* styles.css */
 
+/* Gaya untuk Body */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  background-image: linear-gradient(120deg, #86a8e7, #7fad91); /* Gradien background */
 }
 
+/* Gaya untuk Header */
 header {
-  background-color: #333;
-  color: #fff;
+  background-color: #333; /* Warna latar belakang header */
+  color: #fff; /* Warna teks header */
   padding: 10px 0;
   text-align: center;
+}
+
+
+header .title {
+  color: #fff; /* Ubah warna teks menjadi putih */
 }
 
 nav ul {
@@ -25,21 +32,28 @@ nav ul li {
   margin-right: 20px;
   cursor: pointer;
   font-size: 18px;
+  transition: transform 0.3s ease; /* Animasi untuk item navigasi */
 }
 
 nav ul li.active {
   font-weight: bold;
 }
 
+nav ul li:hover {
+  transform: scale(1.1); /* Efek perbesaran saat dihover */
+}
+
+/* Gaya untuk Container */
 .container {
   max-width: 800px;
   margin: 20px auto;
-  background-color: #fff;
+  background-color: #f9f9f9; /* Warna latar belakang kontainer */
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px; /* Sudut border membulat */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Bayangan lembut */
 }
 
+/* Gaya untuk Form */
 form {
   margin-bottom: 20px;
 }
@@ -59,10 +73,11 @@ table th {
   text-align: left;
 }
 
+/* Gaya untuk Tombol */
 button {
   padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: #3498db; /* Warna tombol */
+  color: #fff; /* Warna teks tombol */
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -70,13 +85,53 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #2980b9; /* Warna tombol saat dihover */
 }
 
+/* Gaya untuk kelas aktif */
 .active {
   font-weight: bold;
 }
 
+/* Completed activity */
 .completed {
   text-decoration: line-through;
+}
+
+/* Animasi untuk item daftar */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+ul li {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Animasi untuk elemen form */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+form {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+/* Animasi untuk checkbox */
+input[type="checkbox"] {
+  transform: scale(1.5); /* Checkbox lebih besar */
+  margin-right: 10px;
 }

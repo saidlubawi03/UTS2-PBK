@@ -10,7 +10,7 @@
     </select>
 
     <!-- Post listing -->
-    <div v-if="selectedUser">
+    <div v-if="selectedUser !== null">
       <h3>Posts by {{ getUserById(selectedUser).name }}:</h3>
       <ul>
         <li v-for="post in posts" :key="post.id">
@@ -19,19 +19,14 @@
         </li>
       </ul>
     </div>
-    
-    <slot></slot>
   </div>
 </template>
 
 <script>
 import { ref, onMounted } from 'vue';
-import { defineProps } from 'vue';
 
 export default {
   setup() {
-    defineProps(['Post']);  
-
     const users = ref([]);
     const selectedUser = ref(null);
     const posts = ref([]);
@@ -47,7 +42,7 @@ export default {
     };
 
     const loadPosts = async () => {
-      if (selectedUser.value) {
+      if (selectedUser.value !== null) {
         try {
           const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${selectedUser.value}`);
           const data = await response.json();
@@ -68,3 +63,14 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+h2, h3, h4 {
+  color: #333;
+}
+
+select {
+  margin-bottom: 20px;
+  padding: 5px;
+}
+</style>

@@ -1,39 +1,21 @@
 <template>
-  <div>
+  <div class="container">
     <header>
       <nav>
         <ul>
-          <li @click="currentTab = 'Post'" :class="{ active: currentTab === 'Post' }">Post</li>
-          <li @click="currentTab = 'TodoList'" :class="{ active: currentTab === 'TodoList' }">TodoList</li>
+          <li><router-link to="/posts" active-class="active">Post</router-link></li>
+          <li><router-link to="/todos" active-class="active">TodoList</router-link></li>
+          <li><router-link to="/albums" active-class="active">Albums</router-link></li>
         </ul>
       </nav>
     </header>
-
-    <div v-if="currentTab === 'Post'">
-      <Post />
-    </div>
-
-    <div v-else-if="currentTab === 'TodoList'">
-      <TodoList />
-    </div>
-
-    <div v-else>
-      <slot name="other-tabs">Content for other tabs...</slot>
-    </div>
+    <router-view />
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
-import Post from './components/Post.vue';
-import TodoList from './components/TodoList.vue';
-
 export default {
-  components: { Post, TodoList },
-  setup() {
-    const currentTab = ref('Post'); 
-    return { currentTab };
-  }
+  name: 'App'
 };
 </script>
 
